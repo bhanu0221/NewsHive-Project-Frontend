@@ -1,16 +1,30 @@
-# React + Vite
+# Vite + React based project frontend. 
+# 🌐 Real-Time News Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and dynamic real-time news website built using **HTML**, **CSS**, and **JavaScript**, featuring multiple news categories including Crypto, Tech, Sports, Crime, and more — all powered by public APIs.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+If you want to visit my site there is a link below.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [Visit the Website]()  
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+##  Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🌍 Real-time news fetched from APIs
+- 📰 Latest crypto headlines using [GNews API](https://gnews.io/)
+- [NewsData.ip](https://newsdata.io/search-dashboard)
+- 📱 Fully responsive and mobile-friendly layout
+- 🎮 Separate pages for Gaming, Tech, Crypto, Crime, Social, etc.
+- 🎨 Custom styles and hover effects
+
+---
+
+## Technologies Used
+
+-React.js
+- HTML5
+- CSS3
+- JavaScript
