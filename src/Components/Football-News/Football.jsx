@@ -1,0 +1,86 @@
+import React, {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
+import '../Football-News/Football.css';
+
+function Football() {
+
+    const [article, setArticle] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    async function loadFootballNews() {
+        const API_key = "pub_fb9b18851685468284d9b9d0f7a13f8c"; // please dont use my api key
+        const url = `https://newsdata.io/api/1/latest?apikey=${API_key}&q=football%20news&language=en`;
+
+        try {
+            setLoading(true);
+            setError('');
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (!data.results || data.results.length === 0) {
+                setArticle([]);
+            } else {
+                setArticle(data.results);
+            }
+
+        } catch (error) {
+            setError("Failed to load news", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
+    useEffect(() => {
+        loadFootballNews();
+        const interval = setInterval(loadFootballNews, 50000); // refresh every 50s
+        return () => clearInterval(interval);
+    }, []);
+
+
+    return (
+        <div id='Football-container'>
+            <h1>Latest Football News</h1>
+
+            {loading && <p className="loading">Please wait, loading news...</p>}
+            {error && <p className="error">{error}</p>}
+            
+            {!loading && !error && article.length === 0 && (
+                <p className="loading">No news found at the moment.</p>
+            )}
+
+            <div className="Football-list">
+                {!loading &&
+                    !error &&
+                    article.map((props, index) => (
+                        <div key={index} className="Football-card">
+                            <h2>{props.title}</h2>
+
+                            <p>
+                                <strong>Source:</strong> {props.source_id || "Unknown"}
+                            </p>
+
+                            {props.image_url && (
+                                <img
+                                    src={props.image_url}
+                                    alt={props.title || "News"}
+                                    className="Football-news-image"
+                                />
+                            )}
+
+                            <p>{props.description || "No description available."}</p>
+
+                            {props.link && (
+                                <Link to={props.link} target="_blank" rel="noopener noreferrer">
+                                    Read more
+                                </Link>
+                            )}
+                        </div>
+                    ))}
+            </div>
+        </div>
+    )
+}
+
+export default Football;

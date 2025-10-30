@@ -1,0 +1,69 @@
+import React, { useState, useEffect } from 'react'
+import { Link } from "react-router-dom";
+import '../Social-News/Social.css';
+function Social() {
+
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    const loadSocialNews = async () => {
+        const url = "https://news-hive-my-cors-proxy.onrender.com/api/social-news"; // also a backend cors proxy
+
+        try {
+            setLoading(true);
+            setError('');
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (!data.articles || data.articles.length === 0) {
+                setArticles([]);
+            } else {
+                setArticles(data.articles);
+            }
+        } catch (err) {
+            setError("Failed to load news", err);
+        } finally {
+            setLoading(false);
+        }
+
+    };
+
+
+    useEffect(() => {
+        loadSocialNews();
+        const interval = setInterval(loadSocialNews, 50000); // refresh every 50s
+        return () => clearInterval(interval);
+    }, []);
+
+
+    return (
+        <div className='social-container'>
+            <h1>Latest Social Media News</h1>
+
+            {loading && <p className="loading">Please wait, Loading news...</p>}
+            {error && <p className="error">{error}</p>}
+            {!loading && !error && articles.length === 0 && <p>No news found.</p>}
+
+            {!loading && !error && (
+                <div className="social-articles">
+                    {articles.map((props, idx) => (
+                        <div key={idx} className="social-card">
+                            <h2>{props.title}</h2>
+                            <p><strong>Source:</strong> {props.source?.name || "Unknown"}</p>
+                            {props.image && (
+                                <img src={props.image} alt="News" className="social-image" />
+                            )}
+                            <p>{props.description || "No description available."}</p>
+                            <Link to={props.url} target="_blank" rel="noopener noreferrer">
+                                Read more
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    )
+};
+
+export default Social

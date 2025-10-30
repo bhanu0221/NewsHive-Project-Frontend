@@ -1,0 +1,122 @@
+.about {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* --- Title --- */
+.about h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* --- About Text --- */
+.about-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-text p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* --- Personal Section --- */
+.personal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #ecfcfd85;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+    gap: 0.6em;
+}
+
+.personal h2 {
+    font-family: cursive;
+    color: rgb(62, 92, 203);
+}
+
+/* --- Left Box (Image + Info) --- */
+#left-Box {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#left-Box img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #3498db;
+}
+
+#left-Box h3 {
+    margin-top: 10px;
+    color: #4987c5;
+}
+
+#right-box {
+    flex: 2;
+    min-width: 280px;
+}
+
+#right-box ul {
+    list-style: none;
+    padding: 0;
+    font-family: cursive;
+}
+
+#right-box li {
+    text-align: left;
+    background: #e1ebee;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .about {
+        padding: 20px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .personal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #left-Box, #right-box {
+        width: 100%;
+        min-width: auto;
+    }
+
+    #right-box li {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    #left-Box img {
+        width: 120px;
+        height: 120px;
+    }
+}
