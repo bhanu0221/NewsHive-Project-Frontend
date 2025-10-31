@@ -1,4 +1,4 @@
-import '../About/About.CSS'
+import '../About/About.css';
 import Anup from '../../assets/Images/Anup.jpg';
 function About() {
     return (
