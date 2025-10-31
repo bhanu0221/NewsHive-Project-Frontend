@@ -1,57 +1,15 @@
-/* Feedback frame container */
 .frame {
-  width: 94%;
-  max-width: 900px;
-  margin: 28px auto;
-  padding: 22px;
-  box-sizing: border-box;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: stretch;
-  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-.frame h2 {
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #14213d;
   text-align: center;
+}
+.frame h2 {
+  text-align: center;
+}
+.link {
+  color: rgb(73, 73, 208);
+}
+.frame h3 {
+  padding-top: 72%;
+  text-align: center;
+  color: rgb(174, 114, 40);
   font-family: cursive;
-}
-
-.frame .subtitle {
-  font-size: 0.95rem;
-  color: #5b6b8a;
-  margin-top: -2px;
-}
-
-/* Iframe styling: responsive and accessible */
-.frame iframe {
-  width: 100%;
-  /* Use a comfortable default height on desktops */
-  height: 90vh;
-  min-height: 400px;
-  max-height: 900px;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(16, 30, 80, 0.06);
-  overflow: hidden; /* prevents inner scrollbars from showing weirdly */
-  transition: transform 180ms ease, box-shadow 180ms ease;
-  background: #fff;
-}
-
-@media (max-width: 768px) {
-  .frame {
-    padding: 16px;
-    border-radius: 10px;
-  }
-  .frame h2 {
-    font-size: 1.15rem;
-  }
-  .frame iframe {
-    height: 56vh; /* keep it tall enough for forms on mobile */
-    min-height: 520px;
-  }
 }
