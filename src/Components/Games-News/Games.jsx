@@ -10,7 +10,7 @@ function Games() {
 
     async function loadGamesNews() {
         const API_key = "pub_fb9b18851685468284d9b9d0f7a13f8c"; // please dont use my api key
-        const url = `https://newsdata.io/api/1/news?apikey=${API_key}&q=gaming&language=en&category=technology`;
+        const url = `https://newsdata.io/api/1/latest?apikey=${API_key}&q=gaming&language=en&category=technology`;
 
         try {
             setLoading(true);
