@@ -52,7 +52,10 @@ function Social() {
                             <h2>{props.title}</h2>
                             <p><strong>Source:</strong> {props.source?.name || "Unknown"}</p>
                             {props.image && (
-                                <img src={props.image} alt="News" className="social-image" />
+                                <img src={props.image} alt="News" className="social-image" onError={() => {
+                                    console.warn(`Image blocked or unavailable: ${props.image}`);
+                                    console.info("Reason: The source server may not allow hotlinking (CORS protection).");
+                                }} />
                             )}
                             <p>{props.description || "No description available."}</p>
                             <Link to={props.url} target="_blank" rel="noopener noreferrer">
