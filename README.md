@@ -6,9 +6,9 @@ A responsive and dynamic real-time news website built using **HTML**, **CSS**, a
 ## 🚀 Live Demo
 If you want to visit my site there is a link below.
 
-👉 [Visit the Website]()  
+👉 [Visit the Website](https://news-hive-frontend.netlify.app/)  
 
-
+For deployement I have used Netlify.
 ---
 
 ##  Features
