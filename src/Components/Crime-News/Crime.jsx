@@ -5,7 +5,7 @@ import '../Crime-News/Crime.css';
 function Crime() {
     
 
-    const [article, setArticle] = useState([]);
+    const [Article, setArticle] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -47,14 +47,14 @@ function Crime() {
             {loading && <p className="loading">Please wait, loading news...</p>}
             {error && <p className="error">{error}</p>}
             
-            {!loading && !error && article.length === 0 && (
+            {!loading && !error && Article.length === 0 && (
                 <p className="loading">No news found at the moment.</p>
             )}
 
             <div className="crime-list">
                 {!loading &&
                     !error &&
-                    article.map((props, index) => (
+                    Article.map((props, index) => (
 
                         <div key={index} className="crime-card">
                             <h2>{props.title}</h2>

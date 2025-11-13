@@ -3,23 +3,26 @@ import { Link } from "react-router-dom";
 import '../Social-News/Social.css';
 function Social() {
 
-    const [articles, setArticles] = useState([]);
+    const [Article, setArticle] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const loadSocialNews = async () => {
         const url = "https://news-hive-my-cors-proxy.onrender.com/api/social-news"; // also a backend cors proxy
-
+        
         try {
             setLoading(true);
             setError('');
             const response = await fetch(url);
             const data = await response.json();
+            // don't confuse in Article and articles.
+            // Article is just UseState and articles is the data is getting from API. 
+            // Api is Gnews.
 
             if (!data.articles || data.articles.length === 0) {
-                setArticles([]);
+                setArticle([]);
             } else {
-                setArticles(data.articles);
+                setArticle(data.articles);
             }
         } catch (err) {
             setError("Failed to load news", err);
@@ -43,11 +46,11 @@ function Social() {
 
             {loading && <p className="loading">Please wait, Loading news...</p>}
             {error && <p className="error">{error}</p>}
-            {!loading && !error && articles.length === 0 && <p>No news found.</p>}
+            {!loading && !error && Article.length === 0 && <p>No news found.</p>}
 
             {!loading && !error && (
                 <div className="social-articles">
-                    {articles.map((props, idx) => (
+                    {Article.map((props, idx) => (
                         <div key={idx} className="social-card">
                             <h2>{props.title}</h2>
                             <p><strong>Source:</strong> {props.source?.name || "Unknown"}</p>

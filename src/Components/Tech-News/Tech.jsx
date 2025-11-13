@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../Tech-News/Tech.css';
 function Tech() {
 
-    const [article, setArticle] = useState([]);
+    const [Article, setArticle] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -45,14 +45,14 @@ function Tech() {
             {loading && <p className="loading">Please wait, loading news...</p>}
             {error && <p className="error">{error}</p>}
             
-            {!loading && !error && article.length === 0 && (
+            {!loading && !error && Article.length === 0 && (
                 <p className="loading">No news found at the moment.</p>
             )}
 
             <div className="tech-list">
                 {!loading &&
                     !error &&
-                    article.map((item, index) => (
+                    Article.map((item, index) => (
                         <div key={index} className="tech-card">
                             <h2>{item.title}</h2>
 

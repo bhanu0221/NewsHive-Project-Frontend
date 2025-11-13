@@ -4,7 +4,7 @@ import '../Crypto-News/Crypto.css';
 
 function Crypto() {
 
-    const [articles, setArticles] = useState([]);
+    const [Article, setArticle] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -15,12 +15,14 @@ function Crypto() {
             setLoading(true);
             setError(false);
             const response = await fetch(url);
-            const data = await response.json();
+            const data = await response.json();  
+            // don't confuse in Article and articles.
+            // Article is just UseState and articles is the data is getting from Gnews API. 
 
             if (!data.articles || data.articles.length === 0) {
-                setArticles([]);
+                setArticle([]);
             } else {
-                setArticles(data.articles);
+                setArticle(data.articles);
             }
         } catch (error) {
             console.error("News fetch error:", error);
@@ -46,7 +48,7 @@ function Crypto() {
         return <h1 className="loading">Error fetching news.</h1>;
     }
 
-    if (articles.length === 0) {
+    if (Article.length === 0) {
         return <div>No news available.</div>;
     }
 
@@ -54,7 +56,7 @@ function Crypto() {
     return (
         <div className="crypto-container">
             <h1>Latest Crypto News</h1>
-            {articles.map((props, idx) => (
+            {Article.map((props, idx) => (
                 <div key={idx} className="crypto-news-articles">
                     <h2>{props.title}</h2>
                     <p>
