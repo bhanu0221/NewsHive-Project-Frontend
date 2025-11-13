@@ -54,20 +54,23 @@ function Crypto() {
     return (
         <div className="crypto-container">
             <h1>Latest Crypto News</h1>
-            {articles.map((props ,idx)=>(
-                <div key={idx} className="crypto-news-articles"> 
+            {articles.map((props, idx) => (
+                <div key={idx} className="crypto-news-articles">
                     <h2>{props.title}</h2>
                     <p>
                         <strong>Source:</strong> {props.source?.name}
                     </p>
                     {props.image && (
-                        <img src={props.image} alt="news" className="crypto-news-image" />
+                        <img src={props.image} alt="news" className="crypto-news-image" onError={() => {
+                            console.warn(`Image blocked or unavailable: ${props.image}`);
+                            console.info("Reason: The source server may not allow hotlinking (CORS protection).");
+                        }} />
                     )}
                     <p>{props.description}</p>
                     <Link to={props.url} rel="noopener noreferrer" target="_blank">
                         Read more
                     </Link>
-                </div>    
+                </div>
             ))}
         </div>
     )
