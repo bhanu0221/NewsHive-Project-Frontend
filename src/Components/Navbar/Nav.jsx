@@ -19,8 +19,8 @@ function Navbar() {
 
                 {/* Mobile Hamburger */}
 
-                <button className="menu-button" title="menu option for responsive"onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                <button className="menu-button" title="menu option for responsive" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}  {/* this is colled ternary operator shorter then if else */}
                 </button>
 
 
