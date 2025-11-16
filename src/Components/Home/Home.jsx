@@ -8,10 +8,10 @@ import crime from '../../assets/Images/crime.jpg';
 import game from '../../assets/Images/gaming.webp';
 
 function Home() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); {/* instead of using Link tag I used useNavigate */}
 
     const buttonHandler1 = () => {
-        console.log('Navigating to /Crypto...');
+        console.log('Navigating to /Crypto...');   
         navigate('/crypto');
     }
 
