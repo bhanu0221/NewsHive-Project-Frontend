@@ -44,28 +44,22 @@ function Tech() {
 
             {loading && <p className="loading">Please wait, loading news...</p>}
             {error && <p className="error">{error}</p>}
-            
+
             {!loading && !error && Article.length === 0 && (
                 <p className="loading">No news found at the moment.</p>
             )}
 
             <div className="tech-list">
-                {!loading &&
-                    !error &&
+                {!loading && !error &&
                     Article.map((item, index) => (
                         <div key={index} className="tech-card">
                             <h2>{item.title}</h2>
-
                             <p>
                                 <strong>Source:</strong> {item.source_id || "Unknown"}
                             </p>
 
                             {item.image_url && (
-                                <img
-                                    src={item.image_url}
-                                    alt={item.title || "News"}
-                                    className="tech-news-image"
-                                />
+                                <img src={item.image_url} alt={item.title || "News"} className="tech-news-image" />
                             )}
 
                             <p>{item.description || "No description available."}</p>

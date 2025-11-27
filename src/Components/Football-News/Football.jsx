@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Football-News/Football.css';
 
@@ -45,14 +45,13 @@ function Football() {
 
             {loading && <p className="loading">Please wait, loading news...</p>}
             {error && <p className="error">{error}</p>}
-            
+
             {!loading && !error && Article.length === 0 && (
                 <p className="loading">No news found at the moment.</p>
             )}
 
             <div className="Football-list">
-                {!loading &&
-                    !error &&
+                {!loading && !error &&
                     Article.map((props, index) => (
                         <div key={index} className="Football-card">
                             <h2>{props.title}</h2>
@@ -62,11 +61,7 @@ function Football() {
                             </p>
 
                             {props.image_url && (
-                                <img
-                                    src={props.image_url}
-                                    alt={props.title || "News"}
-                                    className="Football-news-image"
-                                />
+                                <img src={props.image_url} alt="News" className="Football-news-image" />
                             )}
 
                             <p>{props.description || "No description available."}</p>

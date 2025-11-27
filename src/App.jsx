@@ -1,5 +1,3 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';  // fixing browser tracing warning error.
-
 import './App.css';
 import React from "react";
 import { Route, Routes } from "react-router-dom";

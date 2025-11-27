@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import '../Crime-News/Crime.css';
 
 function Crime() {
-    
+
 
     const [Article, setArticle] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -46,14 +46,13 @@ function Crime() {
 
             {loading && <p className="loading">Please wait, loading news...</p>}
             {error && <p className="error">{error}</p>}
-            
+
             {!loading && !error && Article.length === 0 && (
                 <p className="loading">No news found at the moment.</p>
             )}
 
             <div className="crime-list">
-                {!loading &&
-                    !error &&
+                {!loading && !error &&
                     Article.map((props, index) => (
 
                         <div key={index} className="crime-card">
@@ -64,11 +63,7 @@ function Crime() {
                             </p>
 
                             {props.image_url && (
-                                <img
-                                    src={props.image_url}
-                                    alt={props.title || "News"}
-                                    className="crime-news-image"
-                                />
+                                <img src={props.image_url} alt={props.title || "News"} className="crime-news-image" />
                             )}
 
                             <p>{props.description || "No description available."}</p>

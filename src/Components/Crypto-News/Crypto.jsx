@@ -60,7 +60,7 @@ function Crypto() {
                 <div key={idx} className="crypto-news-articles">
                     <h2>{props.title}</h2>
                     <p>
-                        <strong>Source:</strong> {props.source?.name}
+                        <strong>Source:</strong> {props.source?.name || "Unknown"}
                     </p>
                     {props.image && (
                         <img src={props.image} alt="news" className="crypto-news-image" onError={() => {

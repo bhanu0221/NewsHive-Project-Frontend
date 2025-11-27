@@ -9,7 +9,7 @@ function Social() {
 
     const loadSocialNews = async () => {
         const url = "https://news-hive-my-cors-proxy.onrender.com/api/social-news"; // also a backend cors proxy
-        
+
         try {
             setLoading(true);
             setError('');
@@ -17,7 +17,7 @@ function Social() {
             const data = await response.json();
             // don't confuse in Article and articles.
             // Article is just UseState and articles is the data is getting from API. 
-            // Api is Gnews.
+            // Api Gnews I have used.
 
             if (!data.articles || data.articles.length === 0) {
                 setArticle([]);
@@ -40,36 +40,46 @@ function Social() {
     }, []);
 
 
+    if (loading) {
+        return <h1 className="loading">Please wait for few sec. <strong>Loading news...</strong></h1>;
+    }
+
+    if (error) {
+        return <h1 className="loading">Error fetching news.</h1>;
+    }
+
+    if (Article.length === 0) {
+        return <div>No news available.</div>;
+    }
+
+
     return (
         <div className='social-container'>
             <h1>Latest Social Media News</h1>
+            <div className="social-articles">
+                {Article.map((props, idx) => (
+                    <div key={idx} className="social-card">
+                        <h2>{props.title}</h2>
 
-            {loading && <p className="loading">Please wait, Loading news...</p>}
-            {error && <p className="error">{error}</p>}
-            {!loading && !error && Article.length === 0 && <p>No news found.</p>}
+                        <p>
+                            <strong>Source:</strong> {props.source?.name || "Unknown"}
+                        </p>
+                        {props.image && (
+                            <img src={props.image} alt="News" className="social-image" onError={() => {
+                                console.warn(`Image blocked or unavailable: ${props.image}`);
+                                console.info("Reason: The source server may not allow hotlinking (CORS protection).");
+                            }} />
+                        )}
+                        <p>{props.description || "No description available."}</p>
 
-            {!loading && !error && (
-                <div className="social-articles">
-                    {Article.map((props, idx) => (
-                        <div key={idx} className="social-card">
-                            <h2>{props.title}</h2>
-                            <p><strong>Source:</strong> {props.source?.name || "Unknown"}</p>
-                            {props.image && (
-                                <img src={props.image} alt="News" className="social-image" onError={() => {
-                                    console.warn(`Image blocked or unavailable: ${props.image}`);
-                                    console.info("Reason: The source server may not allow hotlinking (CORS protection).");
-                                }} />
-                            )}
-                            <p>{props.description || "No description available."}</p>
-                            <Link to={props.url} target="_blank" rel="noopener noreferrer">
-                                Read more
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            )}
+                        <Link to={props.url} target="_blank" rel="noopener noreferrer">
+                            Read more
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 };
 
-export default Social
+export default Social;

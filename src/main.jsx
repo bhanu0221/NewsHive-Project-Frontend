@@ -1,5 +1,3 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';  //npm install @fortawesome/fontawesome-free.
-
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
