@@ -1,7 +1,6 @@
 # Vite + React based project frontend.
 
-# 🌐 Real-Time News Website or you can call News-Hive!
-
+# 🌐 Real-Time News Website.
 A responsive and dynamic real-time news website built using **HTML**, **CSS**, and **JavaScript**, featuring multiple news categories including Crypto, Tech, Sports, Crime, and more — all powered by public APIs.
 
 ## 🚀 Live Demo
