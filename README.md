@@ -34,4 +34,4 @@ This website is deployed in Netlify.
 - JavaScript
 - CDN fontAwesome for icons.
 
-## Thank you for visiting my reposetory.💕
+## Thank you for visiting my reposetory Hope you like it.💕
