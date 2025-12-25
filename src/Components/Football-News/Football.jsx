@@ -34,7 +34,7 @@ function Football() {
 
     useEffect(() => {
         loadFootballNews();
-        const interval = setInterval(loadFootballNews, 50000); // refresh every 50s
+        const interval = setInterval(loadFootballNews, 60000); // refresh every 60s
         return () => clearInterval(interval);
     }, []);
 

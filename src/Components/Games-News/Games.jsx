@@ -35,7 +35,7 @@ function Games() {
 
     useEffect(() => {
         loadGamesNews();
-        const interval = setInterval(loadGamesNews, 50000); // refresh every 50s
+        const interval = setInterval(loadGamesNews, 60000); // refresh every 60s
         return () => clearInterval(interval);
     }, []);
 

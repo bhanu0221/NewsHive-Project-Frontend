@@ -33,7 +33,7 @@ function Tech() {
 
     useEffect(() => {
         loadTechNews();
-        const interval = setInterval(loadTechNews, 50000); // refresh every 50s
+        const interval = setInterval(loadTechNews, 60000); // refresh every 60s
         return () => clearInterval(interval);
     }, []);
 

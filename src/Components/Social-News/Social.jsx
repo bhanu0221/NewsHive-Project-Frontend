@@ -35,7 +35,7 @@ function Social() {
 
     useEffect(() => {
         loadSocialNews();
-        const interval = setInterval(loadSocialNews, 50000); // refresh every 50s
+        const interval = setInterval(loadSocialNews, 60000); // refresh every 60s
         return () => clearInterval(interval);
     }, []);
 

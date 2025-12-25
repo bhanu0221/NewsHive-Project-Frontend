@@ -34,7 +34,7 @@ function Crypto() {
 
     useEffect(() => {
         loadCryptoNews();
-        const interval = setInterval(loadCryptoNews, 50000); //refresh in every 50 sec
+        const interval = setInterval(loadCryptoNews, 60000); //refresh in every 60 sec
         return () => clearInterval(interval);
     }, []);
 

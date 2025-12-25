@@ -35,7 +35,7 @@ function Crime() {
 
     useEffect(() => {
         loadCrimeNews();
-        const interval = setInterval(loadCrimeNews, 50000); // refresh every 50s
+        const interval = setInterval(loadCrimeNews, 60000); // refresh every 60s
         return () => clearInterval(interval);
     }, []);
 
