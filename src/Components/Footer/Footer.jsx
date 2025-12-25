@@ -11,7 +11,7 @@ function Footer() {
 
 
         <a
-          href="https://github.com/bhanu0221"
+          href="https://github.com/AnupShahi07"
           className="footer-icon"
           target="_blank"
           rel="noopener noreferrer"
@@ -21,7 +21,7 @@ function Footer() {
         </a>
 
         <a
-          href="https://www.linkedin.com/in/anup-shahi-50486530a"
+          href="https://www.linkedin.com/in/anupshahi07/"
           className="footer-icon"
           target="_blank"
           rel="noopener noreferrer"

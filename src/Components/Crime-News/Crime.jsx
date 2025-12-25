@@ -11,7 +11,7 @@ function Crime() {
 
     async function loadCrimeNews() {
         const apiKey = "pub_fb9b18851685468284d9b9d0f7a13f8c"; // please dont use my api key
-        const url = `https://newsdata.io/api/1/latest?apikey=${apiKey}&q=crime&country=in&language=en`;
+        const url = `https://newsdata.io/api/1/latest?apikey=${apiKey}&q=crime&country=in&category=crime&language=en`;
 
         try {
             setLoading(true);

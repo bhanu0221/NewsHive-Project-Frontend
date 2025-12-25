@@ -9,8 +9,8 @@ function Tech() {
 
     async function loadTechNews() {
         const API_key = 'pub_fb9b18851685468284d9b9d0f7a13f8c'; // please dont use my api key
-        const url = `https://newsdata.io/api/1/latest?apikey=${API_key}&category=technology&language=en`;
-
+        const url = `https://newsdata.io/api/1/latest?apikey=${API_key}&q=Tech&language=en&category=technology`;
+        
         try {
             setLoading(true);
             setError('');
